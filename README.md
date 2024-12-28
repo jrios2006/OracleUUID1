@@ -55,7 +55,14 @@ Error position: line: 77 pos: 7
 
 El código tiene mensajes por consola para su traza.
 
-Dejo un ejemplo escrito en python para verificar su uso desde otros sistemas ajemos a Oracle.
+Dejo un ejemplo escrito en python para verificar su uso desde otros sistemas ajemos a Oracle. Un ejemplo de salida de este programa es:
+
+```
+python validar_UUID.py 
+UUID generado: e3e5c6de-c50c-11ef-8619-94de80d761c4
+Fecha calculada para el UUID generado: 2024-12-28 11:14:22.554083
+Fecha calculada para el UUID preexistente 771A3A00-C514-11EF-7907-BDE13633A369: 2024-12-28 12:08:36
+```
 
 Se puede revisar la RFC 
 <a href="https://datatracker.ietf.org/doc/html/rfc4122#section-4.2.1" target="_blank">Haz clic aquí para para encontrar documentación acerca de los UUID de tipo 1</a>
