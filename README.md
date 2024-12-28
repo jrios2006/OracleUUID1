@@ -5,7 +5,7 @@ Oracle no proporciona una función para generar UUID de tipo 1 de manera nativa.
 
 Este proyecto devuelve dos funciones escritas en Oracle para generar  un uuid de tipo 1.
 
-Como Oracle no propociona acceso a las direcciones MAC de las tarjetas de red, usmos un número pseudoaleatorio para componer el dato.
+Como Oracle no propociona acceso a las direcciones MAC de las tarjetas de red, usamos un número pseudoaleatorio para componer el dato.
 
 ## Funciones SQL
 
