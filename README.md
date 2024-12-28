@@ -57,4 +57,13 @@ El código tiene mensajes por consola para su traza.
 
 Dejo un ejemplo escrito en python para verificar su uso desde otros sistemas ajemos a Oracle.
 
+Se puede revisar la RFC 
+<a href="https://datatracker.ietf.org/doc/html/rfc4122#section-4.2.1" target="_blank">Haz clic aquí para para encontrar documentación acerca de los UUID de tipo 1</a>
+
+ 
+
+Se pue de usar este enlace para pruebas https://www.uniqueids.org/es/v1-uuid
+
+
+
 
