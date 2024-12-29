@@ -71,6 +71,46 @@ Se puede revisar la RFC
 
 Se pue de usar este enlace para pruebas https://www.uniqueids.org/es/v1-uuid
 
+## SYS_GUID()
 
+Oracle propociona esta función que devuelve un UUID, pero no es de tipo 1
 
+```sql
+SELECT SYS_GUID() FROM DUAL;
+```
+Esto nos devuelve un UUID almacenado en hex (16 bits) ideal para almacenarlos en la base de datos. 
 
+|SYS_GUID()|
+|----------|
+|���h�#N����\u0010��%\u0018|
+
+Si usamos nuestra función de deducir la fecha observamos como no es de tipo 1
+
+```sql
+SELECT deducir_fecha_uuid1(SUBSTR(RAWTOHEX('§Ú´XÙ4H³¿C JÍyØö'), 1, 8) || '-' ||
+       SUBSTR(RAWTOHEX('§Ú´XÙ4H³¿C JÍyØö'), 9, 4) || '-' ||
+       SUBSTR(RAWTOHEX('§Ú´XÙ4H³¿C JÍyØö'), 13, 4) || '-' ||
+       SUBSTR(RAWTOHEX('§Ú´XÙ4H³¿C JÍyØö'), 17, 4) || '-' ||
+       SUBSTR(RAWTOHEX('§Ú´XÙ4H³¿C JÍyØö'), 21, 12)) AS FECHA FROM dual;
+```
+|FECHA|
+|-----|
+|3569-12-08 04:42:11.000|
+
+Una versión superioro podría considerar el tamaño del dato y buscar optimizar. De momento parece razonable para un mejor compresión usar el formato ASCII y usar  bytes de almacenamiento.
+
+```sql
+SELECT SUBSTR(RAWTOHEX('§Ú´XÙ4H³¿C JÍyØö'), 1, 8) || '-' ||
+       SUBSTR(RAWTOHEX('§Ú´XÙ4H³¿C JÍyØö'), 9, 4) || '-' ||
+       SUBSTR(RAWTOHEX('§Ú´XÙ4H³¿C JÍyØö'), 13, 4) || '-' ||
+       SUBSTR(RAWTOHEX('§Ú´XÙ4H³¿C JÍyØö'), 17, 4) || '-' ||
+       SUBSTR(RAWTOHEX('§Ú´XÙ4H³¿C JÍyØö'), 21, 12) AS UUID FROM DUAL;
+```
+
+En crudo §Ú´XÙ4H³¿C JÍyØö y en claro
+
+|UUID|
+|----|
+|A7DAB458-D934-48B3-BF43-204ACD79D8F6|
+
+Prefiero este último formato para mejorar la compresión y las búsquedas y sentencias SQL en la aplicación.
